@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodigy to MP3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="/public/favicon.ico">
+    
+
+</head>
+<header class="d-flex justify-content-center mt-3 backgroundsolcito">
+    <img src="../images/solcitologo.jpg" height="300px" width="300px" alt="">
+    <div class="buscadorcelu" hidden>
+        <form id="formulario" method="post" action="/calzado">
+            <div style="width: 100%;max-width: 18rem;">
+                <label for="basic-url" class="font-weight-bold">Buscar en nuestro catalogo <i
+                        class="bi bi-arrow-down-short"></i></label>
+                <input class="URL-input rounded" name="busqueda" id="busqueda">
+                <button type="submit" action="/" onclick="cargarloader()" id="buscar"
+                    class="convert-button btn btn-success mt-2 font-weight-bold mb-2 "><i class="bi bi-star-fill"></i>
+                    Buscar</button>
+
+                <select class="form-select" id="marca" aria-label="Default select example">
+                    <option value="converse"><a href="/Converse">Converse</a></option>
+                    <option value="harenna">Harenna</option>
+                    <option value="vans">Vans</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</header>
+
+<body>
+
+
+    </script>
+
+    <script src="./styles/scripts.js">
+        document.getElementById("formulario").addEventListener("click", function (event) {
+
+
+
+        });
+
+    </script>
+    <div class="filtrosA d-flex">
+        <h4>Filtros</h4>
+        <div class="d-flex overflowscroll">
+            <a class="text-decoration-none" href="/">
+                <div class="linkfiltros bg-warning text-center"><img src="../images/mariposalogo.webp" width="50px"
+                        height="50px" alt="">TODOS</div>
+            </a>
+            <a class="text-decoration-none" href="/calzado/converse">
+                <div class="linkfiltros bg-warning text-center"><img src="../images/converselogo.png" width="50px"
+                        height="50px" alt="">Converse</div>
+            </a>
+            <a class="text-decoration-none" href="/calzado/nike">
+                <div class="linkfiltros bg-warning text-center"><img src="../images/nikelogo.webp" width="50px"
+                        height="50px" alt="">Nike</div>
+            </a>
+            <a class="text-decoration-none" href="/calzado/vans">
+                <div class="linkfiltros bg-warning text-center"><img src="../images/vanslogo.png" width="50px"
+                        height="50px" alt="">Vans</div>
+            </a>
+            <a class="text-decoration-none" href="/calzado/harenna">
+                <div class="linkfiltros bg-warning text-center"><img src="../images/harennalogo.webp" width="50px"
+                        height="50px" alt="">Harenna</div>
+            </a>
+        </div>
+    </div>
+    <div class="vidrio d-flex">
+        <div id="loader" class="loader" style="display:none;"></div>
+        <div class="filtros">
+            <h4>Filtros</h4>
+
+            <a class="text-decoration-none" href="/">
+                <div class="linkfiltros bg-warning"><img src="../images/mariposalogo.webp" width="50px" height="50px"
+                        alt="">TODOS</div>
+            </a>
+
+            <a class="text-decoration-none" href="/calzado/converse">
+                <div class="linkfiltros bg-warning"><img src="../images/converselogo.png" width="50px" height="50px"
+                        alt="">Converse</div>
+            </a>
+            <a class="text-decoration-none" href="/calzado/nike">
+                <div class="linkfiltros bg-warning"><img src="../images/nikelogo.webp" width="50px" height="50px"
+                        alt="">Nike</div>
+            </a>
+            <a class="text-decoration-none" href="/calzado/vans">
+                <div class="linkfiltros bg-warning"><img src="../images/vanslogo.png" width="50px" height="50px"
+                        alt="">Vans</div>
+            </a>
+            <a class="text-decoration-none" href="/calzado/harenna">
+                <div class="linkfiltros bg-warning"><img src="../images/harennalogo.webp" width="50px" height="50px"
+                        alt="">Harenna</div>
+            </a>
+        </div>
+
+         <div class="containergrid d-flex flex-wrap">
+  
+        <% 
+            for( var i = 0; i < calzado.nombre.length; i++ ) { %>
+                 
+                    <div class="card w-50" onclick="window.location.href = '/ver/<%= calzado.marca[i] %>/<%= calzado.nombre[i] %>';">
+                            <img class="card-img-top" crossOrigin="Anonymous" src="<%= "../images/"+ calzado.imagen[i] %>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="font-weight-bold bgorange"><%= calzado.nombre[i] %></h5>
+                                    <p id="talles" class="pb-0 mb-0">talles</p>
+                                    <p class="card-text font-weight-bold mb-0"><span class=" ps-1 pe-1"><%= calzado.talles[i] %></span></p>
+                                    <p class="card-text "><%= calzado.colores[i] %></p>
+                                </div>
+                        </div>
+                
+                    
+                        
+                       
+            <% } %>
+
+                    
+          
+        %>
+    </div>
+
+    </div>
+</body>
+<footer style="margin-top: 40%;">
+    <div class="d-grid justify-content-center text-center">
+        <h2 class="ms-2">Nuestras redes sociales</h2>
+        <h3><a href="https://www.instagram.com/calzadossolcito/"><img src="../images/instagramlogo.png" width="50px"
+                    height="50px">CalzadoSolcito</a></h3>
+    </div>
+
+    <!-- Place <div> tag where you want the feed to appear -->
+    <div class=" justify-content-center">
+        <!-- Place <div> tag where you want the feed to appear -->
+        <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank"
+                class="crt-logo crt-tag">Powered by Curator.io</a></div>
+        <!-- The Javascript can be moved to the end of the html page before the </body> tag -->
+        <script type="text/javascript">
+            /* curator-feed-default-feed-layout */
+            (function () {
+                var i, e, d = document, s = "script"; i = d.createElement("script"); i.async = 1; i.charset = "UTF-8";
+                i.src = "https://cdn.curator.io/published/aa608c9b-aff2-4f0a-9f50-b7304a9ae71d.js";
+                e = d.getElementsByTagName(s)[0]; e.parentNode.insertBefore(i, e);
+            })();
+        </script>
+    </div>
+
+</footer>
+</html>

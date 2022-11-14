@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+*{
+    text-transform:uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+
+.bgorange{
+background-color: #FE9343 !important;
+}
+.containergrid{
+
+}
+.vidrio{
+background: rgba(132, 164, 158, 0.16);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.7px);
+-webkit-backdrop-filter: blur(8.7px);
+border: 1px solid rgba(132, 164, 158, 0.68);
+margin: auto;
+text-align: center;
+margin-top: 3rem;
+}
+.card{
+    box-shadow: 1px -5px 10px #00000075;
+    background-color: #FFD264 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    max-width: 10.7rem;
+    flex: 10rem 1 1 !important;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: 0.4s;
+
+}
+.card:hover{
+transform: translateY(-15px);
+
+}
+#talles{
+    transition: 0.4s;
+}
+.card:hover #talles{
+    text-decoration:underline;
+    }
+
+body{
+    background-color: #ffffff;
+}
+.URL-input{
+    width: 100%;
+}
+.font-weight-bold{
+    font-weight: bold;
+}
+#contacto{
+    position: relative;
+    top: 35vh;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.662);
+}
+.filtros{
+    background: #ffd2643d !important;
+    max-width: 11rem;
+    visibility:hidden;
+    width: 0;
+}
+.filtrosA{
+    background: #ffd2643d !important;
+    visibility: hidden;
+    width: 100%;
+}
+.backgroundsolcito{
+    background-color: #FFEB3C !important;
+    max-height: 190px;
+    overflow: hidden;
+}
+.linkfiltros{
+box-shadow: 1px -5px 10px #00000075;
+transition: 0.4s;
+background-color: #FFD264 !important;
+}
+.linkfiltros:hover{
+        transform: translateY(-4px);
+}
+.overflowscroll{
+    overflow: scroll;
+}
+.loader {
+    
+    margin: auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 0.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+@media screen and (min-device-width: 768px) {
+    .card{
+        width: 25% !important;
+    }
+    .filtros{
+        visibility:visible;
+        width: 25%;
+    }
+
+  }
+  @media screen and (max-device-width: 768px) {
+    .filtrosA{
+        display: flex;
+        flex-wrap: wrap;
+        background: #ffd2643d !important;
+        visibility:visible;
+        width: 100%;
+    }
+  }
