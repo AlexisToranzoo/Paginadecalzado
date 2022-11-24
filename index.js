@@ -1,12 +1,11 @@
 const express = require('express');
 var cors = require('cors')
 const app = express();
-
 app.use(cors())
-
+const productoscontroller= require("./controllers/productoscontroller")
 const fs = require('fs');
 var path = require('path');
-
+const session = require("express-session")
 
 
 
@@ -22,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(clientErrorHandler);
 
 
+
 app.listen(process.env.PORT || 5000)
 
 function clientErrorHandler(err, req, res, next) {
@@ -31,76 +31,18 @@ function clientErrorHandler(err, req, res, next) {
         next(err)
     }
 }
+app.use(session({
+    secret:'testing',
+    resave:true,
+    saveUninitialized:true
+}))
 
-app.get('/', (req, res) => {
+app.get('/', productoscontroller.obtener)
 
-    enviar()
-    async function enviar() {
-        let calzado =
-        {
-        nombre: ["converse panchas", "converse panchas", "converse panchas", "converse panchas","vans"],
-        imagen: ["harenna.jpg", "harenna.jpg", "harenna.jpg", "harenna.jpg", "harenna.jpg"],
-        talles: ["12,133,123,4", "12,133,123,4", "12,133,1223,4", "12,133,123,4","2,3,1"],
-        colores: ["rojo verde", "rojo verde", "rojo verde", "rojo verde","negro"],
-        marca:["converse","converse","converse","converse","vans"]
-        }
-        res.render('index', { calzado })
-    }
-})
-app.get('/calzado/:marca', express.json(), (req, res) => {
-    let marcaa = req.params
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
-
-    let input = req.body.input
-    let calzadofiltro={
-        nombre:[],
-        imagen:[],
-        talles:[],
-        colores:[],
-        marca:[],
-    }
-    let calzado =
-    {
-        nombre: ["converse panchas", "converse panchas", "converse panchas", "converse panchas","vans"],
-        imagen: ["harenna.jpg", "harenna.jpg", "harenna.jpg", "harenna.jpg", "harenna.jpg"],
-        talles: ["12,133,123,4", "12,133,123,4", "12,133,1223,4", "12,133,123,4","2,3,1"],
-        colores: ["rojo verde", "rojo verde", "rojo verde", "rojo verde","negro"],
-        marca:["converse","converse","converse","converse","vans"]
-    }
-    async function filtrador (marcaelegida){
-        for (let i = 0; i < calzado.marca.length; i++) {
-            if (calzado.marca[i] === `${marcaelegida}`) {
-                calzadofiltro.nombre.push(calzado.nombre[i])
-                calzadofiltro.imagen.push(calzado.imagen[i])
-                calzadofiltro.talles.push(calzado.talles[i])
-                calzadofiltro.colores.push(calzado.colores[i])
-                calzadofiltro.marca.push(calzado.marca[i])
-                
-            }
-            else{
-             
-            }
-           
-           }
-    }
-    console.log(marcaa)
-    console.log(marcaa.marca)
-    filtrador(marcaa.marca)
-   calzado = calzadofiltro
-    res.render('calzadofiltrado', { calzado })
-
-  
-
-});
-
-app.get('/ver/:marca/:nombre',express.json(), (req, res) => {
-    console.log(req.params)
-    let info = req.params
-    res.render('ver', { info })
-});
+app.get('/calzado/:marca',productoscontroller.filtrar);
+app.get('/login/admin',productoscontroller.logincargar)
+app.post('/login/admin',productoscontroller.loginvalidar)
+app.get('/ver/:id',productoscontroller.ver);
 app.post('/', express.json(), (req, res) => {
 
     let input = req.body.input
@@ -121,3 +63,6 @@ app.post('/', express.json(), (req, res) => {
 
 
 });
+app.get('/editar',productoscontroller.editar);
+app.get('/editar/:id',productoscontroller.editarproducto);
+

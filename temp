@@ -1,0 +1,43 @@
+    let marcaa = req.params
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+
+    let input = req.body.input
+    let calzadofiltro={
+        nombre:[],
+        imagen:[],
+        talles:[],
+        colores:[],
+        marca:[],
+    }
+    let calzado =
+    {
+        nombre: ["converse panchas", "converse panchas", "converse panchas", "converse panchas","vans"],
+        imagen: ["harenna.jpg", "harenna.jpg", "harenna.jpg", "harenna.jpg", "harenna.jpg"],
+        talles: ["12,133,123,4", "12,133,123,4", "12,133,1223,4", "12,133,123,4","2,3,1"],
+        colores: ["rojo verde", "rojo verde", "rojo verde", "rojo verde","negro"],
+        marca:["converse","converse","converse","converse","vans"]
+    }
+    async function filtrador (marcaelegida){
+        for (let i = 0; i < calzado.marca.length; i++) {
+            if (calzado.marca[i] === `${marcaelegida}`) {
+                calzadofiltro.nombre.push(calzado.nombre[i])
+                calzadofiltro.imagen.push(calzado.imagen[i])
+                calzadofiltro.talles.push(calzado.talles[i])
+                calzadofiltro.colores.push(calzado.colores[i])
+                calzadofiltro.marca.push(calzado.marca[i])
+                
+            }
+            else{
+             
+            }
+           
+           }
+    }
+    console.log(marcaa)
+    console.log(marcaa.marca)
+    filtrador(marcaa.marca)
+   calzado = calzadofiltro
+    res.render('calzadofiltrado', { calzado })

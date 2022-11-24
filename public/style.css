@@ -21,6 +21,7 @@ margin: auto;
 text-align: center;
 margin-top: 3rem;
 }
+
 .card{
     box-shadow: 1px -5px 10px #00000075;
     background-color: #FFD264 !important;
@@ -119,5 +120,17 @@ background-color: #FFD264 !important;
         background: #ffd2643d !important;
         visibility:visible;
         width: 100%;
+    }
+    .containerver{
+    flex-direction: column;
+    justify-content: center !important;
+    }
+    .textover{
+        justify-content: center;
+        width: 100% !important;
+    }
+    .imagenver{
+        justify-content: center;
+        width: 100% !important;
     }
   }

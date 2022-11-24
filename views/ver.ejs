@@ -37,16 +37,21 @@
     
 </header>
 
-<h1 class="ms-3 text-center"><%= info.nombre  %></h1>
+<h1 class="ms-3 text-center"><%= calzado[0].nombre  %></h1>
 
 <body>
-<section class="d-flex">
-    <section class="w-75">
-        <img src="/images/harenna.jpg" width="80%" >
+<section class="d-flex containerver">
+    <section class="w-75 imagenver d-flex justify-content-center">
+        <img src="/images/harenna.jpg" style="max-width:50rem;" width="80%" >
     </section>
-    <section class="text-center w-25">
-        marca: <%= info.marca %> 
-        
+    <section class="textover text-left w-25 d-grid">
+        <p class="h2">marca: <%= calzado[0].marca %> <br>
+        talles: <%= calzado[0].talles %> <br>
+        colores: <%= calzado[0].colores %> <br>
+        estilo: <%= calzado[0].categoria %> <br>
+        <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=3517073603&text=Hola%20que%20tal%20me%20interesa%20un%20calzado"><span><i class="bi bi-whatsapp"></i></span>Comentame tus dudas por aca!</a>
+    </p>
+
     </section>
     
 </section>
