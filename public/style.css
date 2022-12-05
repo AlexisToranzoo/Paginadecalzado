@@ -8,7 +8,7 @@
 background-color: #FE9343 !important;
 }
 .containergrid{
-
+justify-content: center;
 }
 .vidrio{
 background: rgba(132, 164, 158, 0.16);
