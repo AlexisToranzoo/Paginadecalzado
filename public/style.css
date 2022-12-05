@@ -60,12 +60,26 @@ body{
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.662);
 }
+
+#vergrande{
+    animation: 1s;
+}
+#vergrande2{
+    animation: 1s;
+}
+#vergrande:hover{
+    filter: drop-shadow(2px 4px 6px black);
+}
+#vergrande2:hover{
+    filter: drop-shadow(2px 4px 6px black);
+}
 .filtros{
     background: #ffd2643d !important;
     max-width: 11rem;
     visibility:hidden;
     width: 0;
 }
+
 .filtrosA{
     background: #ffd2643d !important;
     visibility: hidden;
@@ -132,5 +146,17 @@ background-color: #FFD264 !important;
     .imagenver{
         justify-content: center;
         width: 100% !important;
+    }
+  }
+
+  @media screen and (max-device-width: 475px) {
+   .detallesdeproducto{
+    font-size: 0px;
+   }
+   .containerdeimagen{
+    display: block !important;
+    }
+    .containerdeminiaturas{
+        flex-direction: row !important;
     }
   }

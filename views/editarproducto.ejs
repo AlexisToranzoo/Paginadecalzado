@@ -39,24 +39,51 @@
 
 
 <body>
-EDITAR <%= calzado[0].nombre %> 
-<form class="d-grid w-50 text-center">
-    ID
-    <input disabled type="number" value=<%= calzado[0].id %>>
-    NOMBRE
-    <input type="text" value=<%= calzado[0].nombre %>>
-    IMAGEN
-    <input type="text" value=<%= calzado[0].imagen %>>
-    TALLES
-    <input type="text" value=<%= calzado[0].talles %>>
-    COLORES
-    <input type="text" value=<%= calzado[0].colores %>>
-    MARCA
-    <input type="text" value=<%= calzado[0].marca %>>
-    CATEGORIA
-    <input type="text" value=<%= calzado[0].categoria %>>
-    IMAGENES
-    <input type="text" value=<%= calzado[0].imagenes %>>
+<h1 class="text-center">EDITAR</h1> 
+<h3 class="text-center"><%= calzado[0].nombre %> </h3>
+<form enctype="multipart/form-data" class="d-flex flex-column container text-center" method="post" action="/actualizar/<%= calzado[0].id %>">
+    <div class="input-group mb-3">
+        <span class="input-group-text">ID</span>
+          <input  disabled type="text" class="form-control" id="floatingInputGroup1" placeholder="Username" value="<%= calzado[0].id %>">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">NOMBRE</span>
+          <input required  type="text" class="form-control" id="floatingInputGroup1" placeholder="nombre" value=<%= calzado[0].nombre %> name="nombre">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">talles</span>
+          <input required type="text" class="form-control" id="floatingInputGroup1" placeholder="talles" value=<%= calzado[0].talles %> name="talles">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">colores</span>
+          <input required type="text" class="form-control" id="floatingInputGroup1" placeholder="colores" value=<%= calzado[0].colores %> name="colores">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">marca</span>
+          <input required type="text" class="form-control" id="floatingInputGroup1" placeholder="marca" value=<%= calzado[0].marca %> name="marca">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">categoria</span>
+          <input required type="text" class="form-control" id="floatingInputGroup1" placeholder="categoria" value=<%= calzado[0].categoria %> name="categoria">
+    </div>
+    <div class="form-group">
+        <label for="my-input">imagenes</label>
+        <br/>
+        <img class="img-thumbnail" width="100" src="/images/<%=calzado[0].imagenes%>">
+      
+        <input type="file" class="form-control-file" name="imagenes" id="my-input">
+    </div>
+
+    <div class="form-group">
+        <label for="my-input">imagen</label>
+        <br/>
+        <img class="img-thumbnail" width="100" src="/images/<%=calzado[0].imagen%>">
+      
+        <input type="file" class="form-control-file" name="imagen" id="my-input">
+    </div>
+    <button class="btn btn-primary" type="submit">
+        guardar
+        </button>
 </form>
 
 

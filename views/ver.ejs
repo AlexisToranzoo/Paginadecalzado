@@ -40,9 +40,16 @@
 <h1 class="ms-3 text-center"><%= calzado[0].nombre  %></h1>
 
 <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="../scripts.js"></script>
 <section class="d-flex containerver">
-    <section class="w-75 imagenver d-flex justify-content-center">
-        <img src="/images/harenna.jpg" style="max-width:50rem;" width="80%" >
+    <section class="w-75 imagenver d-flex justify-content-center containerdeimagen">
+        <div class="d-flex flex-column containerdeminiaturas">
+        <img id="vergrande" src=<%="../images/"+calzado[0].imagenes %> height="100px" width="100px">
+        <img id="vergrande2" src=<%="../images/"+calzado[0].imagen %> height="100px" width="100px">
+        </div>
+        <img id="hacergrande" src=<%="../images/"+calzado[0].imagenes %> style="max-width:50rem;" width="80%">
+        <img id="hacergrande2" src=<%="../images/"+calzado[0].imagen %> style="max-width:50rem;" width="80%">
     </section>
     <section class="textover text-left w-25 d-grid">
         <p class="h2">marca: <%= calzado[0].marca %> <br>

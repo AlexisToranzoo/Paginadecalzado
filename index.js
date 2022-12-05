@@ -4,9 +4,22 @@ const app = express();
 app.use(cors())
 const productoscontroller= require("./controllers/productoscontroller")
 const fs = require('fs');
+const jwt = require("jsonwebtoken");
 var path = require('path');
 const session = require("express-session")
-
+var multer = require('multer')
+var fecha = Date.now();
+var rutaAlmacen = multer.diskStorage({
+    destination:function(request,file, callback){
+        callback(null,'./public/images/')
+    },
+    filename:function (request,file,callback) {
+        console.log(file);
+        callback(null,fecha+"_"+file.originalname.replace(/\s/g, ''))
+    }
+});
+var cargar = multer({storage:rutaAlmacen});
+const multipleUpload = cargar.fields([{ name: 'imagen'}, { name: 'imagenes', maxCount: 3 }])
 
 
 app.use(express.static('public'))
@@ -63,6 +76,28 @@ app.post('/', express.json(), (req, res) => {
 
 
 });
-app.get('/editar',productoscontroller.editar);
-app.get('/editar/:id',productoscontroller.editarproducto);
 
+app.post('/eliminar/:id',productoscontroller.borrar);
+app.get('/editar',productoscontroller.editar,verifyToken,);
+app.post('/actualizar/:id',multipleUpload,productoscontroller.actualizar);
+app.post('/agregarnuevo',multipleUpload,productoscontroller.agregar);
+app.get('/agregarnuevo0',express.json(), (req, res) => {
+    res.render("agregarproducto")
+});
+
+
+
+app.get('/editar/:id',productoscontroller.editarproducto);
+app.post('/login/logout',productoscontroller.cerrarsesion);
+
+function verifyToken(req, res, next){
+    const bearerHeader =  req.headers['authorization'];
+
+    if(typeof bearerHeader !== 'undefined'){
+         const bearerToken = bearerHeader.split(" ")[1];
+         req.token  = bearerToken;
+         next();
+    }else{
+        res.sendStatus(403);
+    }
+}

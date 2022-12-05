@@ -40,18 +40,29 @@
 
 
 <body>
+    <form action="/login/logout" class="mb-2 ms-2" method="post">
+    <button class="btn btn-danger" type="submit">
+            Cerrar sesion
+    </button>
+</form>
     LOGEADO !
     <h1 class="mb-2 text-center">Clickea un producto para modificarlo</h1>
+    <form action="/agregarnuevo0" class="mb-2 ms-2" method="get">
+        <button class="btn btn-primary" type="submit">
+                Agregar producto nuevo
+        </button>
+    </form>
+   
     <div>
         <table class="table table-dark table-hover">
         <thead>
             <tr>
                 <th>nombre</th>
-                <th>talles</th>
-                <th>colores</th>
-                <th>marca</th>
-                <th>categoria</th>
-                <th>imagen</th>
+                <th class="detallesdeproducto">talles</th>
+                <th class="detallesdeproducto">colores</th>
+                <th class="detallesdeproducto">marca</th>
+                <th class="detallesdeproducto">categoria</th>
+                <th >imagen</th>
                 <th>acciones</th>
             </tr>
         </thead>
@@ -62,16 +73,16 @@
                         <%=calzado[i].nombre%>
                     </td>
 
-                    <td>
+                    <td class="detallesdeproducto">
                         <%=calzado[i].talles%>
                     </td>
-                    <td>
+                    <td class="detallesdeproducto">
                         <%=calzado[i].colores%>
                     </td>
-                    <td>
+                    <td class="detallesdeproducto">
                         <%=calzado[i].marca%>
                     </td>
-                    <td>
+                    <td class="detallesdeproducto">
                         <%=calzado[i].categoria%>
                     </td>
                     <td>
